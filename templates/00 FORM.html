@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+{% from 'bootstrap5/form.html' import render_form %}
+{{ render_form(form, novalidate=True, button_map={"submit": "success"}) }}
