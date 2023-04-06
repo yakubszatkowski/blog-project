@@ -163,8 +163,9 @@ def show_post(post_id):
     # comments = db.session.query(Comment).filter_by(post_id=post_id).all()  # Used relational database code after all
     # for comment in comments:
     #     print(comment.text)
-    if current_user.is_authenticated:
-        if comment_form.validate_on_submit():
+
+    if comment_form.validate_on_submit():
+        if current_user.is_authenticated:
             new_comment = Comment(
                 text=comment_form.body.data,
                 comment_author=current_user,
@@ -172,8 +173,8 @@ def show_post(post_id):
             )
             db.session.add(new_comment)
             db.session.commit()
-    else:
-        flash('You need to be logged in to post comments.')
+        else:
+            flash('You need to be logged in to post comments.')
 
     return render_template("post.html",
                            post=requested_post,
