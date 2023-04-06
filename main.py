@@ -172,8 +172,8 @@ def show_post(post_id):
             )
             db.session.add(new_comment)
             db.session.commit()
-    else:
-        flash('You need to be logged in to post comments.')
+        else:
+            flash('You need to be logged in to post comments.')
 
     return render_template("post.html",
                            post=requested_post,
