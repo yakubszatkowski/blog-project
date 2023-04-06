@@ -48,9 +48,9 @@ def admin_only(f):
 class User(db.Model, UserMixin):
     __tablename__ = "users"
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(50), nullable=False)
-    password = db.Column(db.String(20), nullable=False)
-    email = db.Column(db.String(50), unique=True, nullable=False)
+    name = db.Column(db.String(100), nullable=False)
+    password = db.Column(db.String(200), nullable=False)
+    email = db.Column(db.String(100), unique=True, nullable=False)
     posts = db.relationship('BlogPost', back_populates='author')
     comments = db.relationship('Comment', back_populates='comment_author')
 
